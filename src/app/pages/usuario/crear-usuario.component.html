@@ -1,0 +1,40 @@
+<form [formGroup]="this.createUsuarioForm" (ngSubmit)="onGoCreate()" autocomplete="off">
+    <div class="row justify-content-center">
+        <div class="card col-lg-6 col-12">
+            <div class="card-body">
+                <h4 class="card-title">Registrar Usuario</h4><br>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <small><b class="text-danger mr-1">*</b> Nombre</small>
+                            <input class="form-control form-control-md" type="text" formControlName="name"
+                                placeholder="Ingrese su Nombre Completo">
+                            <small *ngIf="campoNoValido('nombre')"
+                                class="label label-danger col-lg-12">{{messageValidation.nombre}}</small>
+                        </div>
+                        <div class="form-group">
+                            <small><b class="text-danger mr-1">*</b> Email</small>
+                            <input class="form-control form-control-md" type="email" formControlName="email"
+                                placeholder="Ingrese su Correo Electronico">
+                            <small *ngIf="campoNoValido('email')"
+                                class="label label-danger col-lg-12">{{messageValidation.email}}</small>
+                            <small *ngIf="usuario.email" class="label label-danger col-lg-12">{{usuario.email}}</small>
+                        </div>
+                        <div class="form-group">
+                            <small><b class="text-danger mr-1">*</b> Password</small>
+                            <input type="password" class="form-control form-control-md" required
+                                formControlName="password" placeholder="Ingrese su Contraseña">
+                            <small *ngIf="campoNoValido('password')"
+                                class="label label-danger col-lg-12">{{messageValidation.password}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center form-actions">
+                    <button type="button" class="btn btn-inverse mr-2" (click)="confirmCancel($event)"><i class="fa fa-close"></i>&nbsp;Cancelar</button>
+                    <button type="submit" class="btn btn-success" [ngClass]="{'disabled': this.createUsuarioForm.invalid}"
+                        [disabled]="this.createUsuarioForm.invalid"><i class="fa fa-check"></i>&nbsp;Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

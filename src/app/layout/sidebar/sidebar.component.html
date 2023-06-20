@@ -1,0 +1,40 @@
+<aside class="left-sidebar animated fadeIn">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false">
+                        <img [src]="usuario.imagenUrl" alt="user"/>
+                        <span class="hide-menu">{{ usuario.rolUser }}</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a routerLink="./perfil">Mi Perfil </a></li>
+                        <li><a routerLink="account-setting">Configuraciones</a></li>
+                    </ul>
+                </li> -->
+
+                <!-- <li class="nav-devider"></li> -->
+                <!-- <li class="nav-small-cap">PERSONAL</li> -->
+
+                <li *ngFor="let item of menuItems">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false">
+                        <i [class]="item.icon"></i>
+                        <span class="hide-menu"> 
+                            {{ item.title }}
+                            <span class="label label-rouded label-themecolor pull-right">
+                                {{ item.submenu.length }}
+                            </span>
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let subMenuItem of item.submenu">
+                            <a [routerLink]="subMenuItem.url" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ subMenuItem.title }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

@@ -1,0 +1,26 @@
+<section class="login-register" style="background-image:url(../assets/images/background/background-login.jpg);">
+    <div class="login-box card">
+        <form autocomplete="off" [formGroup]="authForm" (ngSubmit)="formLogin()" autocomplete="off">
+            <div class="card-body"><br>
+                <div class="text-center">
+                    <h1><b>Iniciar Session</b></h1>
+                    <h6>Ingresa tus credenciales</h6>
+                </div><br><br>
+                <div class="form-group">
+                    <small>Correo</small>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Correo electrónico">
+                    <small *ngIf="campoNoValido('email')" class="label label-danger col-12">{{messageValidation.email}}</small>
+                </div>
+
+                <div class="form-group">
+                    <small>Contraseña</small>
+                    <input class="form-control" type="password" formControlName="password" placeholder="Contraseña">
+                    <small *ngIf="campoNoValido('password')" class="label label-danger col-12">{{messageValidation.password}}</small>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="this.authForm.invalid" type="submit" class="btn btn-dark submit-btn btn-block">Ingresar</button>
+            </div>
+        </form>
+    </div>
+</section>

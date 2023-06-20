@@ -1,0 +1,25 @@
+<form autocomplete="off" [formGroup]="createArticuloForm" (ngSubmit)="onGoCreateImage()">
+  <div class="card animated fadeIn">
+    <div class="card-body">
+      <h4 class="card-title">Subir imagenes</h4><br>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <fieldset class="form-group">
+            <div class="custom-file fileInputProfileWrap">
+              <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+              <div class="img-space">
+                <img [src]="cardImageBase64 || imageTemp" />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="text-rightd form-actions">
+        <button type="button" class="btn btn-inverse mr-2" (click)="confirmCancel($event)"><i
+            class="fa fa-close"></i>&nbsp;Cancelar</button>
+        <button type="submit" class="btn btn-success" [ngClass]="{'disabled': this.createArticuloForm.invalid}"
+          [disabled]="this.createArticuloForm.invalid"><i class="fa fa-check"></i>&nbsp;Guardar</button>
+      </div>
+    </div>
+  </div>
+</form>
